@@ -1,0 +1,19 @@
+RewriteEngine On
+RewriteBase /
+
+# Admin routes
+RewriteRule ^admin$ manage_users.php?admin=1 [L]
+RewriteRule ^admin/buttons$ admin_button_management.php [L]
+RewriteRule ^admin/buttons/([0-9]+)/steps$ admin_routine_steps.php?button_id=$1 [L]
+RewriteRule ^admin/buttons/([0-9]+)/status$ admin_statuscheckdef.php?button_id=$1 [L]
+RewriteRule ^admin/mqtt_topics$ admin_MQTT_Topics.php [L]
+RewriteRule ^admin/shelly_devices$ admin_shelly_devices.php [L]
+RewriteRule ^admin/button_logs$ admin_view_button_logs.php [L]
+RewriteRule ^admin/logout$ logout.php [L]
+RewriteRule ^admin/login$ admin_login.php [L]
+
+# Manage users route
+RewriteRule ^([a-zA-Z0-9_-]+)/manageusers$ manage_users.php?user=$1 [L]
+
+# User route (must be last as it's the most generic)
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?user=$1 [L]

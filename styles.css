@@ -1,0 +1,538 @@
+/* 
+ * EntryZen System Styles
+ * Harmonized stylesheet for all pages
+ */
+
+/* ===== CSS VARIABLES ===== */
+:root {
+    /* Colors */
+    --primary-color: #ff6666;
+    --primary-hover: #ff0f0f;
+    --text-color: #333;
+    --light-text: #fff;
+    --border-color: #ccc;
+    --light-bg: #f9f9f9;
+    --table-header-bg: #f2f2f2;
+    --table-border: #dddddd;
+    --table-alt-row: #f8f9fa;
+    
+    /* Status colors */
+    --status-unknown: #888;
+    --status-open: #4CAF50;
+    --status-closed: #f44336;
+    --status-error: #ff9800;
+    
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    
+    /* Border radius */
+    --border-radius: 4px;
+    
+    /* Transitions */
+    --transition-speed: 0.3s;
+}
+
+/* ===== GENERAL STYLES ===== */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: var(--spacing-lg);
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    margin-bottom: var(--spacing-md);
+}
+
+/* Content container for centered layouts */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* ===== TABLES ===== */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+}
+
+table, th, td {
+    border: 1px solid var(--table-border);
+}
+
+th, td {
+    padding: var(--spacing-sm);
+    text-align: left;
+}
+
+th {
+    background-color: var(--table-header-bg);
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-alt-row);
+}
+
+/* User tree table specific styles */
+.user-tree-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-lg);
+}
+
+.user-tree-table th, 
+.user-tree-table td {
+    padding: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.user-tree-table th {
+    background-color: var(--table-alt-row);
+    font-weight: 500;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.tree-cell {
+    font-family: monospace;
+    white-space: nowrap;
+    padding-left: 10px;
+}
+
+/* Add user table styles */
+.add-user-table {
+    width: 100%;
+    margin-top: var(--spacing-lg);
+    border-collapse: collapse;
+}
+
+.add-user-table th {
+    background-color: var(--table-alt-row);
+    font-weight: 500;
+    border-bottom: 2px solid #dee2e6;
+    padding: 12px;
+    text-align: left;
+}
+
+.add-user-table td {
+    padding: 12px;
+    border: 1px solid #eee;
+}
+
+/* ===== FORMS ===== */
+form {
+    margin-bottom: var(--spacing-lg);
+}
+
+input[type=text], 
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin: var(--spacing-xs) 0;
+    display: inline-block;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.http-body-textarea {
+    min-height: 24px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+/* Form containers */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    display: block;
+}
+
+/* ===== BUTTONS ===== */
+button, 
+input[type="submit"],
+.button-style,
+.action-btn {
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--light-text);
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin: var(--spacing-xs) var(--spacing-xs);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    line-height: normal;
+    box-sizing: border-box;
+    transition: background-color var(--transition-speed);
+}
+
+button:hover, 
+input[type="submit"]:hover,
+.button-style:hover,
+.action-btn:hover {
+    background-color: var(--primary-hover);
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+/* Front page button style */
+.button-style-front {
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--light-text);
+    padding: var(--spacing-lg) var(--spacing-md);
+    text-align: center;
+    display: block;
+    font-size: 20px;
+    margin: var(--spacing-md) 0;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    line-height: normal;
+    box-sizing: border-box;
+    transition: background-color var(--transition-speed);
+    width: 100%;
+    max-width: 300px;
+    position: relative;
+}
+
+.button-style-front:hover {
+    background-color: var(--primary-hover);
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+/* Button groups */
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: var(--spacing-md);
+}
+
+/* Action buttons for user management */
+.action-button-container {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: nowrap;
+}
+
+.action-btn {
+    padding: 6px 12px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.action-buttons {
+    white-space: nowrap;
+    padding: var(--spacing-sm);
+}
+
+.delete-btn {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+.delete-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Admin button style */
+.admin-button {
+    background-color: rgba(255, 102, 102, 0.8);
+    border: none;
+    color: var(--light-text);
+    padding: 8px 15px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    transition: background-color var(--transition-speed);
+}
+
+.admin-button:hover {
+    background-color: var(--primary-hover);
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+/* ===== BUTTON CONTAINER AND STATUS ICONS ===== */
+.button-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Index page specific button container styles */
+.content-container .button-container {
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-container .button-status-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.status-icon {
+    display: inline-block;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 18px;
+    line-height: 1;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    color: var(--light-text);
+}
+
+.status-icon i {
+    position: relative;
+}
+
+.status-unknown {
+    background-color: transparent;
+}
+
+.status-open {
+    background-color: transparent;
+}
+
+.status-closed {
+    background-color: transparent;
+}
+
+.status-error {
+    background-color: transparent;
+}
+
+/* Override for button-style-front in index.php */
+.button-container .button-style-front {
+    display: inline-block;
+    width: 100%;
+}
+
+/* ===== INFO CONTAINER ===== */
+.info-container {
+    display: none;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    margin-top: 10px;
+    margin-bottom: var(--spacing-lg);
+    background-color: var(--light-bg);
+}
+
+/* Index page specific info container */
+.content-container .info-container {
+    width: 100%;
+}
+
+.info-header {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.info-detail {
+    white-space: pre-line;
+    margin-bottom: var(--spacing-lg);
+}
+
+/* ===== MODAL STYLES ===== */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: var(--spacing-lg);
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: var(--border-radius);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* ===== CONDITIONAL FIELD DISPLAY ===== */
+.field-container {
+    margin-bottom: var(--spacing-md);
+}
+
+.http-fields,
+.mqtt-fields {
+    display: none;
+}
+
+.http-fields.active,
+.mqtt-fields.active {
+    display: block;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.hidden {
+    display: none;
+}
+
+.hidden-form {
+    display: none;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (max-width: 768px) {
+    .button-style-front {
+        width: 100%;
+        max-width: none;
+    }
+    
+    .button-container {
+        max-width: none;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+    
+    .form-container {
+        padding: var(--spacing-sm);
+    }
+}
+
+/* ===== HEADER AND NAVIGATION ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    background-color: #f5f5f5;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+header .logo {
+    height: 50px;
+}
+
+header .logo img {
+    height: 100%;
+    max-width: 200px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: var(--spacing-md);
+}
+
+header nav ul li a {
+    color: var(--dark-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-speed);
+}
+
+header nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive header adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: var(--spacing-sm);
+    }
+    
+    header .logo {
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    header nav ul li {
+        margin: 0 var(--spacing-sm) var(--spacing-sm) var(--spacing-sm);
+    }
+}
