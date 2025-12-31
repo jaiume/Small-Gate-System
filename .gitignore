@@ -1,0 +1,17 @@
+# Configuration (contains sensitive credentials)
+config.php
+
+# Composer dependencies
+vendor/
+
+# IDE/Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
