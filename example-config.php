@@ -17,3 +17,4 @@ $logo_filename = "NHPLogo.jpg"; // Replace with your logo file name
 $mqtt_client_id = "your-mqtt-client-id";
 $timezone = 'America/New_York'; // Replace with your desired timezone
 
+
